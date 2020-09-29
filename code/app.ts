@@ -1,12 +1,5 @@
 let dateTag: Element = document.querySelector(".date-tag");
 
-
-
-
-
-setInterval(()=> myDate(), 1000);
-
-
 function myDate(){
     let date: any = new Date;
 
@@ -24,3 +17,5 @@ function myDate(){
 
     dateTag.innerHTML = `${day}.${month}.${year}`;
 };
+
+setInterval(myDate, 1000);

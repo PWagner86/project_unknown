@@ -1,5 +1,4 @@
 var dateTag = document.querySelector(".date-tag");
-setInterval(function () { return myDate(); }, 1000);
 function myDate() {
     var date = new Date;
     var year = date.getFullYear();
@@ -14,3 +13,4 @@ function myDate() {
     dateTag.innerHTML = day + "." + month + "." + year;
 }
 ;
+setInterval(myDate, 1000);
