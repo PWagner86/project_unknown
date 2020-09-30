@@ -4,4 +4,23 @@
 body{
     width: 100vw;
     height: 100vh;
+    font-family: $mainFont;
+    background: rgb(15, 78, 150);
+
+    header{
+        height: 20vh;
+        display: flex;
+
+        .header-titel-wrapper{
+            width: 80%;
+        }
+
+        .header-date-wrapper{
+            width: 20%;
+
+            .date-tag{
+                font-size: 3vmin;
+            }
+        }
+    }
 }

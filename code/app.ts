@@ -1,21 +1,40 @@
-let dateTag: Element = document.querySelector(".date-tag");
 
-function myDate(){
-    let date: any = new Date;
+class myDate {
 
-    let year: any  = date.getFullYear();
-    let month: any = "" + (date.getMonth() + 1);
-    let day: any = "" + date.getDate();
+    private dateTag: Element;
+    private date: any;
+    private year: any;
+    private month: any;
+    private day: any;
 
-    if(month.length < 2){
-        month = "0" + month;
+    constructor(
+    date: any = new Date, 
+    year: any = date.getFullYear(),
+    month: any = "" + (date.getMonth() + 1), 
+    day: any = "" + date.getDate()){
+        this.dateTag = document.querySelector(".date-tag");
+        this.date = date;
+        this.year = year;
+        this.month = month;
+        this.day = day;
+        this.updateDate();
+
+        setInterval(this.updateDate, 1000);
     }
 
-    if(day.length < 2){
-        day = "0" + day;
+    private updateDate(){
+        if(this.month.length < 2){
+            this.month = "0" + this.month;
+        }
+    
+        if(this.day.length < 2){
+            this.day = "0" + this.day;
+        }
+    
+        this.dateTag.innerHTML = `${this.day}.${this.month}.${this.year}`;
     }
+    
+}
 
-    dateTag.innerHTML = `${day}.${month}.${year}`;
-};
+let newDate = new myDate;
 
-setInterval(myDate, 1000);
