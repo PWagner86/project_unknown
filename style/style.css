@@ -58,4 +58,65 @@ body header .header-date-wrapper {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+
+body main {
+  height: 80vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body main .btn-container {
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main .btn-container button {
+  width: 50%;
+  height: 10%;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5vmin;
+}
+
+body main .text-container {
+  width: 50%;
+  height: 100%;
+}
+
+body main .text-container .author-wrapper,
+body main .text-container .quote-wrapper {
+  width: 100%;
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body main .text-container .author-wrapper .author,
+body main .text-container .author-wrapper .quote-titel,
+body main .text-container .quote-wrapper .author,
+body main .text-container .quote-wrapper .quote-titel {
+  font-size: 4vmin;
+  padding-bottom: 1rem;
+}
 /*# sourceMappingURL=style.css.map */

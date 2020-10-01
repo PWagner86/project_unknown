@@ -1,3 +1,12 @@
+// Variables
+var btn = document.querySelector("button");
+// Events
+btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    getInfo();
+});
+// Functions
+// Time and date function
 function startDateAndTime() {
     var date = new Date;
     var year = date.getFullYear();
@@ -23,3 +32,21 @@ function checkTime(i) {
     return i;
 }
 startDateAndTime();
+function getInfo() {
+    fetch('https://breaking-bad-quotes.herokuapp.com/v1/quotes')
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+        console.log(data);
+        var person = document.querySelector(".person");
+        var quoter = document.querySelector(".quote");
+        deleteText(person);
+        deleteText(quoter);
+        person.innerText = data[0].author;
+        quoter.innerText = data[0].quote;
+    });
+}
+function deleteText(container) {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+}

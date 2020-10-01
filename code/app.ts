@@ -1,3 +1,33 @@
+// Variables
+const btn: Element = document.querySelector("button");
+
+
+
+
+
+
+
+
+// Events
+
+
+
+btn.addEventListener("click", (e)=>{
+    e.preventDefault();
+    getInfo();
+});
+
+
+
+
+
+
+// Functions
+
+
+
+
+// Time and date function
 function startDateAndTime(){
     let date: Date = new Date;
     let year: number = date.getFullYear();
@@ -29,3 +59,31 @@ function checkTime(i){
 }
 
 startDateAndTime();
+
+
+
+
+function getInfo(){
+    fetch('https://breaking-bad-quotes.herokuapp.com/v1/quotes')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        let person: any = document.querySelector(".person");
+        let quoter: any = document.querySelector(".quote");
+
+        deleteText(person);
+        deleteText(quoter);
+
+        person.innerText = data[0].author;
+        quoter.innerText = data[0].quote;
+    })
+}
+
+
+function deleteText(container){
+    while(container.firstChild){
+        container.removeChild(container.firstChild);
+    }
+}
+
+
