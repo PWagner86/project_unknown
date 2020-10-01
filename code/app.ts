@@ -1,40 +1,31 @@
+function startDateAndTime(){
+    let date: Date = new Date;
+    let year: number = date.getFullYear();
+    let month: number = (date.getMonth() + 1);
+    let day: number = date.getDate();
+    let hour: number = date.getHours();
+    let minute: number = date.getMinutes();
+    let second: number = date.getSeconds();
 
-class myDate {
+    let dateTag: Element = document.querySelector(".date-tag");
+    let timeTag: Element = document.querySelector(".time-tag");
 
-    private dateTag: Element;
-    private date: any;
-    private year: any;
-    private month: any;
-    private day: any;
+    month = checkTime(month);
+    day = checkTime(day);
+    minute = checkTime(minute);
+    second = checkTime(second);
 
-    constructor(
-    date: any = new Date, 
-    year: any = date.getFullYear(),
-    month: any = "" + (date.getMonth() + 1), 
-    day: any = "" + date.getDate()){
-        this.dateTag = document.querySelector(".date-tag");
-        this.date = date;
-        this.year = year;
-        this.month = month;
-        this.day = day;
-        this.updateDate();
+    dateTag.innerHTML = `${day}.${month}.${year}`;
+    timeTag.innerHTML = `${hour}:${minute}:${second}`;
 
-        setInterval(this.updateDate, 1000);
-    }
-
-    private updateDate(){
-        if(this.month.length < 2){
-            this.month = "0" + this.month;
-        }
-    
-        if(this.day.length < 2){
-            this.day = "0" + this.day;
-        }
-    
-        this.dateTag.innerHTML = `${this.day}.${this.month}.${this.year}`;
-    }
-    
+    setTimeout(startDateAndTime, 500);
 }
 
-let newDate = new myDate;
+function checkTime(i){
+    if(i < 10){
+        i = "0" + i;
+    }
+    return i;
+}
 
+startDateAndTime();

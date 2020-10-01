@@ -1,26 +1,25 @@
-var myDate = /** @class */ (function () {
-    function myDate(date, year, month, day) {
-        if (date === void 0) { date = new Date; }
-        if (year === void 0) { year = date.getFullYear(); }
-        if (month === void 0) { month = "" + (date.getMonth() + 1); }
-        if (day === void 0) { day = "" + date.getDate(); }
-        this.dateTag = document.querySelector(".date-tag");
-        this.date = date;
-        this.year = year;
-        this.month = month;
-        this.day = day;
-        this.updateDate();
-        setInterval(this.updateDate, 1000);
+function startDateAndTime() {
+    var date = new Date;
+    var year = date.getFullYear();
+    var month = (date.getMonth() + 1);
+    var day = date.getDate();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+    var dateTag = document.querySelector(".date-tag");
+    var timeTag = document.querySelector(".time-tag");
+    month = checkTime(month);
+    day = checkTime(day);
+    minute = checkTime(minute);
+    second = checkTime(second);
+    dateTag.innerHTML = day + "." + month + "." + year;
+    timeTag.innerHTML = hour + ":" + minute + ":" + second;
+    setTimeout(startDateAndTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
     }
-    myDate.prototype.updateDate = function () {
-        if (this.month.length < 2) {
-            this.month = "0" + this.month;
-        }
-        if (this.day.length < 2) {
-            this.day = "0" + this.day;
-        }
-        this.dateTag.innerHTML = this.day + "." + this.month + "." + this.year;
-    };
-    return myDate;
-}());
-var newDate = new myDate;
+    return i;
+}
+startDateAndTime();

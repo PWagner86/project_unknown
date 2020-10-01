@@ -17,10 +17,7 @@ body{
 
         .header-date-wrapper{
             width: 20%;
-
-            .date-tag{
-                font-size: 3vmin;
-            }
+            flex-direction: column;
         }
     }
 }
