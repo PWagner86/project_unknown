@@ -110,6 +110,7 @@ body main .text-container .quote-wrapper {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  text-align: center;
 }
 
 body main .text-container .author-wrapper .author,
